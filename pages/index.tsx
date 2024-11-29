@@ -14,11 +14,12 @@ export default function Home() {
       if (!emailValue || !emailPattern.test(emailValue)) {
         setData("Please enter a valid email address.");
         setNoticeType('error');
-        return;
+        setShowModal(showModal => !showModal);
       }
       else{
         (emailInput as HTMLInputElement).value = "";
         setShowModal(showModal => !showModal);
+        setNoticeType('success');
         setData('You will be notified once we launch.')
       }
     }
@@ -71,9 +72,9 @@ export default function Home() {
       {showModal && (
       <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300">
         <div className="bg-white p-6 rounded-md shadow-md">
-        <h2 className="text-black text-2xl font-bold mb-4">{noticeType == 'success' ? 'Thank you!' : 'Please Fix your Email' }</h2>
+        <h2 className="text-black text-2xl font-bold mb-4">{noticeType == 'error' ? 'Please Fix your Email' : 'Thank You' }</h2>
         <p className="mb-4 text-black">{data}</p>
-        <button onClick={handleClick} className="px-4 py-2 bg-blue-500 text-white rounded-md">
+        <button onClick={() => setShowModal(false)} className="px-4 py-2 bg-blue-500 text-white rounded-md">
           Close
         </button>
         </div>
