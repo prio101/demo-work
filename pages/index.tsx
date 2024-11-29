@@ -40,7 +40,7 @@ export default function Home() {
         <input
         type="email"
         placeholder="Enter your email"
-        className="px-4 py-2 border rounded-md"
+        className="text-black px-4 py-2 border rounded-md"
         />
         <button onClick={handleClick} className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md">
         Notify Me
@@ -51,8 +51,8 @@ export default function Home() {
       {showModal && (
       <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300">
         <div className="bg-white p-6 rounded-md shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Thank you!</h2>
-        <p className="mb-4">You will be notified once we launch.</p>
+        <h2 className="text-black text-2xl font-bold mb-4">Thank you!</h2>
+        <p className="mb-4 text-black">You will be notified once we launch.</p>
         <button onClick={handleClick} className="px-4 py-2 bg-blue-500 text-white rounded-md">
           Close
         </button>
