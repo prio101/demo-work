@@ -56,14 +56,14 @@ export default function Home() {
       <div className="flex flex-1 flex-col items-center justify-center min-h-screen py-2">
       <h2 className="text-6xl font-bold m-2">WhiteKite</h2>
       <h1 className="text-4xl font-bold mt-4">Coming Soon</h1>
-      <p className="text-lg mt-2">We are working hard to bring you something amazing. Stay tuned!</p>
-      <div className="mt-6">
+      <p className="text-lg mt-2 text-center">We are working hard to bring you something amazing. Stay tuned!</p>
+      <div className="mt-6 flex flex-col md:flex-row">
         <input
-        type="email"
-        placeholder="Enter your email"
-        className="text-black px-4 py-2 border rounded-md"
+          type="email"
+          placeholder="Enter your email"
+          className="h-10 text-black px-4 py-2 border rounded-md"
         />
-        <button onClick={handleClick} className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md">
+        <button onClick={handleClick} className="h-10 mt-2 md:mt-0 md:ml-2 px-4 py-2 bg-blue-500 text-white rounded-md">
           Notify Me
         </button>
       </div>
