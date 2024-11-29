@@ -3,12 +3,28 @@ import { useEffect } from "react";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
+  const [data, setData] = useState('');
+  const [noticeType, setNoticeType] = useState('success');
+
   const handleClick = () => {
     const emailInput = document.querySelector("input[type='email']");
     if (emailInput) {
-      (emailInput as HTMLInputElement).value = "";
+      const emailValue = (emailInput as HTMLInputElement).value;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailValue || !emailPattern.test(emailValue)) {
+        setData("Please enter a valid email address.");
+        setNoticeType('error');
+        return;
+      }
+      else{
+        (emailInput as HTMLInputElement).value = "";
+        setShowModal(showModal => !showModal);
+        setData('You will be notified once we launch.')
+      }
     }
-    setShowModal(showModal => !showModal);
+
+
+
   }
 
 
@@ -55,8 +71,8 @@ export default function Home() {
       {showModal && (
       <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300">
         <div className="bg-white p-6 rounded-md shadow-md">
-        <h2 className="text-black text-2xl font-bold mb-4">Thank you!</h2>
-        <p className="mb-4 text-black">You will be notified once we launch.</p>
+        <h2 className="text-black text-2xl font-bold mb-4">{noticeType == 'success' ? 'Thank you!' : 'Please Fix your Email' }</h2>
+        <p className="mb-4 text-black">{data}</p>
         <button onClick={handleClick} className="px-4 py-2 bg-blue-500 text-white rounded-md">
           Close
         </button>
