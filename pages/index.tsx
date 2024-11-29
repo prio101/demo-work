@@ -63,7 +63,11 @@ export default function Home() {
           placeholder="Enter your email"
           className="h-10 text-black px-4 py-2 border rounded-md"
         />
-        <button onClick={handleClick} className="h-10 mt-2 md:mt-0 md:ml-2 px-4 py-2 bg-blue-500 text-white rounded-md">
+        <button onClick={handleClick}
+                className="h-10 mt-2 md:mt-0 md:ml-2 px-4 py-2
+                           text-white rounded-md
+                           bg-transparent
+                           border border-1">
           Notify Me
         </button>
       </div>
