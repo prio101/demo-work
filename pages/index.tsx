@@ -4,6 +4,10 @@ import { useEffect } from "react";
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
   const handleClick = () => {
+    const emailInput = document.querySelector("input[type='email']");
+    if (emailInput) {
+      (emailInput as HTMLInputElement).value = "";
+    }
     setShowModal(showModal => !showModal);
   }
 
@@ -43,7 +47,7 @@ export default function Home() {
         className="text-black px-4 py-2 border rounded-md"
         />
         <button onClick={handleClick} className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md">
-        Notify Me
+          Notify Me
         </button>
       </div>
       </div>
