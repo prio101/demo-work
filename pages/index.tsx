@@ -26,13 +26,9 @@ export default function Home() {
       }
     }, 5000);
 
-    () => clearInterval(interval);
+    return () => clearInterval(interval);
 
-  }, []);
-
-  useEffect(() => {
-
-  }, []);
+  }, [gradients]);
 
   return (
     <div className="flex flex-1 flex-row w-full gradient-bg">
